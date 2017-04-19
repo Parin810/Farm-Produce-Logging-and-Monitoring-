@@ -1,0 +1,185 @@
+<modification>
+    <name>Remove product compare and wishlist</name>
+    <version>v1.8</version>
+    <author>SporeDev</author>
+    <code>remove-compare-and-wishlist</code>
+	<!-- Remove "Compare this Product" and "Add to Wish List" from Bestsellers, Featured, Latest, Specials -->
+	<file path="catalog/view/theme/*/template/module/{bestseller,featured,latest,special}*.tpl">
+    <operation>
+        <search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+    <operation>
+        <search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+	</file>
+	<!-- Remove "Compare this Product" and "Add to Wish List" from Category Page. -->
+	<file path="catalog/view/theme/*/template/product/category.tpl">
+    <operation>
+        <search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+    <operation>
+        <search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+	<operation>
+	<search><![CDATA[<p><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></p>]]></search>
+	<add position="replace"><![CDATA[]]></add>
+	</operation>
+	</file>
+	<!-- Remove "Compare this Product" and "Add to Wish List" from Product Page (also covers the "Related Products" section since it's located in the same .tpl). -->
+	<file path="catalog/view/theme/*/template/product/product.tpl">
+    <operation>
+        <search><![CDATA[<button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product_id; ?>');"><i class="fa fa-heart"></i></button>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+    <operation>
+        <search><![CDATA[<button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product_id; ?>');"><i class="fa fa-exchange"></i></button>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+	<operation>
+        <search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+	</operation>
+	<operation>
+		<search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>]]></search>
+		<add position="replace"><![CDATA[]]></add>
+	</operation>
+	</file>
+	<!-- Remove "Compare this product" and "Add to Wish List" from Search Page. -->
+	<file path="catalog/view/theme/*/template/product/search.tpl">
+    <operation>
+        <search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+    <operation>
+        <search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+	</file>
+	<!-- Remove "Wish list" link from header. -->
+	<file path="catalog/view/theme/*/template/common/header.tpl">
+    <operation>
+        <search><![CDATA[<li><a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $text_wishlist; ?>"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_wishlist; ?></span></a></li>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+	</file>
+	<!-- Remove "Wish list" link from footer. -->
+	<file path="catalog/view/theme/*/template/common/footer.tpl">
+    <operation>
+        <search><![CDATA[<li><a href="<?php echo $wishlist; ?>"><?php echo $text_wishlist; ?></a></li>]]></search>
+        <add position="replace"><![CDATA[<li><a href="<?php //echo $wishlist; ?>"><?php //echo $text_wishlist; ?></a></li>]]></add>
+    </operation>
+	</file>	
+	<!-- Set "Add to cart" width to 100% for categories. -->
+	<file path="catalog/view/theme/*/template/product/category.tpl">
+    <operation>
+        <search><![CDATA[<button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>]]></search>
+        <add position="replace"><![CDATA[<button type="button" style="width:100% !important;" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>]]></add>
+    </operation>
+	</file>	
+	<!-- Remove "Compare" button from search results. -->
+	<file path="catalog/view/theme/*/template/product/search.tpl">
+    <operation>
+        <search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+    <operation>
+        <search><![CDATA[	<p><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></p>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>	
+	</file>	
+	<!-- Set "Add to cart" width to 100% for search results. -->
+	<file path="catalog/view/theme/*/template/product/search.tpl">
+    <operation>
+        <search><![CDATA[<button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>]]></search>
+        <add position="replace"><![CDATA[<button type="button" style="width:100% !important;" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>]]></add>
+    </operation>
+	</file>
+	<!-- Set "Add to cart" width to 100% for Bestsellers, Featured, Latest, Specials -->
+	<file path="catalog/view/theme/*/template/module/{bestseller,featured,latest,special}*.tpl">
+    <operation>
+        <search><![CDATA[<button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>]]></search>
+        <add position="replace"><![CDATA[<button type="button" style="width:100% !important;" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>]]></add>
+    </operation>
+	</file>
+	<!-- Set "Add to cart" width to 100% for Related Products -->
+	<file path="catalog/view/theme/*/template/product/product.tpl">
+    <operation>
+        <search><![CDATA[<button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span> <i class="fa fa-shopping-cart"></i></button>]]></search>
+        <add position="replace"><![CDATA[<button type="button" style="width:100% !important;" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span> <i class="fa fa-shopping-cart"></i></button>]]></add>
+    </operation>
+	</file>	
+	<!-- Remove "Wishlist" link from Account template. -->
+	<file path="catalog/view/theme/*/template/account/account.tpl">
+    <operation>
+        <search><![CDATA[<li><a href="<?php echo $wishlist; ?>"><?php echo $text_wishlist; ?></a></li>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+	</file>
+	<!-- Remove "Wishlist" link from Account module. -->
+	<file path="catalog/view/theme/*/template/module/account.tpl">
+    <operation>
+        <search><![CDATA[<a href="<?php echo $address; ?>" class="list-group-item"><?php echo $text_address; ?></a> <a href="<?php echo $wishlist; ?>" class="list-group-item"><?php echo $text_wishlist; ?></a> <a href="<?php echo $order; ?>" class="list-group-item"><?php echo $text_order; ?></a> <a href="<?php echo $download; ?>" class="list-group-item"><?php echo $text_download; ?></a><a href="<?php echo $recurring; ?>" class="list-group-item"><?php echo $text_recurring; ?></a> <a href="<?php echo $reward; ?>" class="list-group-item"><?php echo $text_reward; ?></a> <a href="<?php echo $return; ?>" class="list-group-item"><?php echo $text_return; ?></a> <a href="<?php echo $transaction; ?>" class="list-group-item"><?php echo $text_transaction; ?></a> <a href="<?php echo $newsletter; ?>" class="list-group-item"><?php echo $text_newsletter; ?></a>]]></search>
+        <add position="replace"><![CDATA[<a href="<?php echo $address; ?>" class="list-group-item"><?php echo $text_address; ?></a> <a href="<?php echo $order; ?>" class="list-group-item"><?php echo $text_order; ?></a> <a href="<?php echo $download; ?>" class="list-group-item"><?php echo $text_download; ?></a><a href="<?php echo $recurring; ?>" class="list-group-item"><?php echo $text_recurring; ?></a> <a href="<?php echo $reward; ?>" class="list-group-item"><?php echo $text_reward; ?></a> <a href="<?php echo $return; ?>" class="list-group-item"><?php echo $text_return; ?></a> <a href="<?php echo $transaction; ?>" class="list-group-item"><?php echo $text_transaction; ?></a> <a href="<?php echo $newsletter; ?>" class="list-group-item"><?php echo $text_newsletter; ?></a>]]></add>
+    </operation>
+	</file>
+	<!-- Remove "Wishlist" button from the "Special Products" page. -->
+	<file path="catalog/view/theme/*/template/product/special.tpl">
+    <operation>
+        <search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+	</file>
+	<!-- Remove "Wishlist" button from the "Brands" page. -->
+	<file path="catalog/view/theme/*/template/product/manufacturer_info.tpl">
+    <operation>
+        <search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+	</file>
+	<!-- Remove "Compare" button from the "Special Products" page. -->
+	<file path="catalog/view/theme/*/template/product/special.tpl">
+    <operation>
+        <search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+	</file>
+	<!-- Remove "Product Compare" link from the "Special Products" page. -->
+	<file path="catalog/view/theme/*/template/product/special.tpl">
+    <operation>
+        <search><![CDATA[<p><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></p>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+	</file>
+	<!-- Remove "Product Compare" link from the "Brands" page. -->
+	<file path="catalog/view/theme/*/template/product/manufacturer_info.tpl">
+    <operation>
+        <search><![CDATA[<p><a href="<?php echo $compare; ?>" id="compare-total"> <?php echo $text_compare; ?></a></p>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+	</file>	
+	<!-- Remove "Compare" button from the "Brands" page. -->
+	<file path="catalog/view/theme/*/template/product/manufacturer_info.tpl">
+    <operation>
+        <search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>]]></search>
+        <add position="replace"><![CDATA[]]></add>
+    </operation>
+	</file>
+	<!-- Set "Add to cart" width to 100% for "Brands" page -->
+	<file path="catalog/view/theme/*/template/product/manufacturer_info.tpl">
+    <operation>
+        <search><![CDATA[<button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>]]></search>
+        <add position="replace"><![CDATA[<button type="button" style="width:100%;" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>]]></add>
+    </operation>
+	</file>	
+	<!-- Set "Add to cart" width to 100% for the "Special Products" page -->
+	<file path="catalog/view/theme/*/template/product/special.tpl">
+    <operation>
+        <search><![CDATA[<button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>]]></search>
+        <add position="replace"><![CDATA[<button type="button" style="width:100% !important;" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>]]></add>
+    </operation>
+	</file>	
+</modification>

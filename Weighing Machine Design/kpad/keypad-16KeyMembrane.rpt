@@ -1,0 +1,72 @@
+*****************************************************************
+      SolidWorks Corporation - IGES Processor Status Report
+*****************************************************************
+=================================================================
+General Information
+=================================================================
+Sending System Product I.D.  : KEYPAD
+Receiving System Product I.D.: KEYPAD
+File Name                    : keypad-16KeyMembrane.igs
+Sending System               : Creo Parametric by PTC Inc.
+Preprocessor Version         : 2015380
+File Creation Date           : 20160124.104644
+Model Creation Date          : 20160124.104644
+Units                        : INCH
+Model Space Scale            : 1
+Author                       : zemlike
+Organization                 : Unknown
+
+
+=================================================================
+Entity Processing Information
+=================================================================
+
+
+=================================================================
+Precision analysis of IGES file:
+=================================================================
+  Most prevalent number of significant digits:              13
+  Highest number of significant digits:                     13
+  Average number of significant digits:                11.4837
+  Maximum distance to origin:                          1.49879
+  Minimum distance to origin:                         0.854951
+  Effective number of significant digits:               12.437
+
+
+=================================================================
+Entity Summary
+=================================================================
+-----------------------------------------------------------------
+Type Name                                         Count Converted
+---- ----                                         ----- ---------
+100  Arc                                             24        24
+110  Line                                           901       901
+120  Surface of revolution                           12        12
+122  Tabulated cylinder                             258       258
+124  Transformation matrix                           24        24
+126  Rational B-spline curve                       2330      2330
+128  Rational B-spline surface                      789       789
+186  Manifold Solid B-rep Object                      1         1
+314  Color definition                                34        34
+402  Associativity instance                           2         2
+406  Property                                         2         2
+502  Vertex list                                      2         2
+504  Edge entity                                      2         2
+508  Loop entity                                   1093      1093
+510  Face entity                                   1059      1059
+514  Shell entity                                     2         2
+_________________________________________________________________
+
+
+=================================================================
+Result Summary
+=================================================================
+SolidWorks Feature Type                Count
+-----------------------                -----
+Solid feature(s)                       1
+Surface feature(s)                     1
+Curve/Sketch feature(s)                0
+--------------------------------------------
+Start time: Sunday, June 19, 2016 23:06:11
+Finish time: Sunday, June 19, 2016 23:06:51
+Processing time: 0 days, 00 hours, 00 mins, 40 secs
